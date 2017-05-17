@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SDN Firewall Controller Settings</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/web/css/pure-min-0.5.0.css">
+    <link rel="stylesheet" href="/web/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/web/css/pure-custom.css">
+    <link rel="stylesheet" href="/web/css/joint.all.min.css">
+  </head>
+
+  <body>
+
+  <div class="header">
+      <div id="menu">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <img src="/web/img/controller.png" style="height:40px;vertical-align:middle;">
+          <a class="pure-menu-heading" href="">SDN Firewall Controller Settings</a>
+      </div>
+  </div>
+  </div>
+
+  <div id="layout">
+  <div id="menu">
+      <div class="pure-menu pure-menu-open">
+          <ul>
+              <li class="menu-item-divided pure-menu-selected">
+                  <a href="/web/index.html">Add Rules
+                  <i class="fa fa-edit"></i></a>
+              </li>
+	      <li class=" ">
+                  <a href="/web/stats.html">Flows
+                  <i class="fa fa-bar-chart-o"></i></a>
+              </li>
+              <li class=" ">
+                  <a href="/web/live.html">Live Choices
+                  <i class="fa fa-sitemap"></i></a>
+              </li>	      
+ </ul>
+ </div>
+ </div>
+
+ <div id="main">
+        <h2>Add Rules</h2>
+        <p>Following form allows sending FlowMod messages to a specific switch.
+        You can send a FlowMod message with command Add using button Set, when you'll finish compiling this form.
+        If you want to delete a previous inserted rule, then you can rewrite that rule's parameters in this form and click Clear.
+        Otherwise, you can delete a bunch of rules previously inserted all at once by specifying only source and sink ports and clicking Clear:
+        this will cause all previous rules inserted regarding those ports to be deleted.</p>
+
+<form class="pure-form pure-form-aligned">
+    <fieldset>
+            <div class="pure-control-group">
+                <label>Switch DPID</label>
+                <select id="switch" style="width:12em;"
+                    onchange="updatePorts()">
+                </select>
+            </div>
+
+            <div class="pure-control-group">
+                <label>Source port(s)</label>
+                <select id="src-ports" style="width:12em;" multiple>
+                </select>
+            </div>
+
+            <div class="pure-control-group">
+                <label>Sink port(s)</label>
+                <select id="sink-ports" style="width:12em;" multiple>
+                </select>
+            </div>
+
+            <div class="pure-control-group">
+                <label>MAC address</label>
+                <select id="mac-class">
+                    <option>--Ignore--</option>
+                    <option>Source</option>
+                    <option>Destination</option>
+                    <option>Src or Dest</option>
+                </select>
+                <input id="mac-addr" type="text"
+                placeholder="01:12:23:34:45:56">
+            </div>
+
+            <div class="pure-control-group">
+                <label>IP address</label>
+                <select id="ip-class">
+                    <option>--Ignore--</option>
+                    <option>Source</option>
+                    <option>Destination</option>
+                    <option>Src or Dest</option>
+                </select>
+                <input id="ip-addr" type="text"
+                placeholder="12.23.34.45/24">
+            </div>
+
+            <div class="pure-control-group">
+                <!--<div class="pure-u-1 pure-u-md-1-3">-->
+                <label>Common traffic types</label>
+                <select id="traffic-type"> 
+                    <option>--Ignore--</option>
+                    <option>HTTP</option>
+                    <option>HTTPS</option>
+                    <option>UDP</option>
+                    <option>DHCP</option>
+                    <option>ICMP</option>
+                </select>
+            </div>
+    </fieldset>
+</form>
+            <div class="pure-controls">
+                <button href="#" class="pure-button pure-button-primary" onclick="setTap()">Set</button>
+                <button href="#" class="pure-button pure-button-primary" onclick="clearTap()">Clear</button>
+            </div>
+    <div id="post-status">
+    </div>
+  </div><!-- main -->
+  </div><!--layout -->
+  <div class="footer">
+	  <p class="legal-copyright">
+	  © 2016 Davide Di Donato & Federico Livi. All rights reserved.
+	  </p>
+  </div>
+
+  <script src="/web/js/jquery.min.js"></script>
+  <script src="/web/js/utils.js"></script>
+  <script src="/web/js/tap.js"></script>
+  </body>
+</html>

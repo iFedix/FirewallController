@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SDN Firewall Controller Settings</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/web/css/pure-min-0.5.0.css">
+    <link rel="stylesheet" href="/web/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/web/css/pure-custom.css">
+  </head>
+
+  <body>
+
+  <div class="header">
+      <div id="menu">
+      <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+          <img src="/web/img/controller.png" style="height:40px;vertical-align:middle;">
+          <a class="pure-menu-heading" href="">SDN Firewall Controller Settings</a>
+      </div>
+  </div>
+  </div>
+
+  <div id="layout">
+  <div id="menu">
+      <div class="pure-menu pure-menu-open">
+          <ul>
+               <li class="">
+                  <a href="/web/index.html">Add Rules
+                  <i class="fa fa-edit"></i></a>
+              </li>
+	      <li class="menu-item-divided pure-menu-selected">
+                  <a href="/web/stats.html">Flows
+                  <i class="fa fa-bar-chart-o"></i></a>
+              </li>
+              <li class=" ">
+                  <a href="/web/live.html">Live Choices
+                  <i class="fa fa-sitemap"></i></a>
+              </li>	
+ </ul>
+ </div>
+ </div>
+
+ <div id="main">
+     <div>
+         <br/>
+
+         <div>
+             <h2>Flow Statistics</h2>
+             <button style="float:right;" type="submit" class="pure-button
+                 pure-button-primary" onclick="stopFlowStatsTableRefresh()">Stop refresh</button>
+
+             <table class="pure-table pure-table-bordered">
+                 <thead>
+                     <tr>
+                         <th rowspan="2">Switch</th>
+                         <th rowspan="2">In port</th>
+                         <th colspan="3">MAC Src</th>
+                         <th colspan="3">IP Src</th>
+                         <th colspan="2">Transport</th>
+                         <th rowspan="2">Out port</th>
+                         <th rowspan="2">Duration (secs)</th>
+                         <th rowspan="2">Packets</th>
+                         <th rowspan="2">Bytes</th>
+                     </tr>
+                     <tr>
+                         <th>Src</th>
+                         <th>Dst</th>
+                         <th>Type</th>
+                         <th>Src</th>
+                         <th>Dst</th>
+                         <th>Type</th>
+                         <th>Src port</th>
+                         <th>Dst port</th>
+                     </tr>
+                 </thead>
+                 <tbody id="flow-stats-data">
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ </div><!-- main -->
+</div><!--layout -->
+
+  <div class="footer">
+	  <p class="legal-copyright">
+	  © 2016 Davide Di Donato & Federico Livi. All rights reserved.
+	  </p>
+  </div>
+
+  <script src="/web/js/jquery.min.js"></script>
+  <script src="/web/js/utils.js"></script>
+  <script src="/web/js/flow-stats.js"></script>
+
+  </body>
+</html>
