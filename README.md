@@ -19,7 +19,9 @@ Note: all the interactions between user and ryu application are provided by Java
 
 ## Tests
 
-In the folder **tests**, there are three shell scripts that will let you emulate the network shown in the picture inside the folder. These are needed in order to test how this controller application works. Try communicating between those two computers using different protocols and see how this controller application behaves (for example you can test a simple ping between the computers).
+In the folder **tests**, there are three shell scripts that will let you emulate the network shown below:
+![Test](https://raw.githubusercontent.com/iFedix/FirewallController/master/tests/topology.png)
+These are needed in order to test how this controller application works. Try communicating between those two endpoint computers using different protocols and see how this controller application behaves (for example you can test a simple ping between the computers).
 
 ## Docs
 
